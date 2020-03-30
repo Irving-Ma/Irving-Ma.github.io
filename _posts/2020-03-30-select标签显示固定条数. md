@@ -1,9 +1,14 @@
-问题描述:
-下拉框太长，一直到页面底部
-select默认是20条<option>,超过20条时才会出现滚动条
-可以设置size="5"属性，用来指定显示多少行，设置之后发现只显示了一行，下拉框样式出现问题，次是需要添加height:auto;z-index:1;position: absolute;样式,这样原有的样式布局才不会发生改变，具体根据实际情况调整。
+## select标签显示固定条数
+### 问题描述:
+** 下拉框太长，一直到页面底部
+select默认是20条,超过20条时才会出现滚动条可以设置size="5"属性，用来指定显示多少行，设置之后发现只显示了一行，下拉框样式出现问题，次是需要添加height:auto;z-index:1;position:absolute;样式,这样原有的样式布局才不会发生改变，具体根据实际情况调整。 **
+****
+
 结果如图：
+![markdown](https://img-blog.csdnimg.cn/2019072615525381.png "markdown")
+
 HTML:
+```html
 <select id="storePrizeName" name="storePrizeName" class="form-control"
                     style="z-index: 1;position: absolute;">
                 <option value="">所有</option>
@@ -19,11 +24,11 @@ HTML:
                 <option value="jjjj">jjjj</option>
                 <option value="kkkk">kkkk</option>
 </select>
-
-
+```
 
 JS:
-    //初始化下拉框事件--产品维度
+```javascript
+//初始化下拉框事件--产品维度
     $("#storePrizeName>option").click(function(){
         $("#storePrizeName").removeAttr("size");
         $("#storePrizeName").css("height","");
@@ -38,4 +43,4 @@ JS:
         $("#storePrizeName").removeAttr("size");
         $("#storePrizeName").css("height","");
     });
-
+```
